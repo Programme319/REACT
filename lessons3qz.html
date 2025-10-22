@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React from CDN</title>
-
     <!-- React and ReactDOM via CDN -->
     <script
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -24,21 +23,22 @@
     <!-- React code -->
     <script type="text/babel">
       function App() {
-        const [count, setcount] = React.useState(0);
+        const [name, setName] = React.useState("");
 
-        function counting() {
-          setcount(count + 1);
-        }
-
-        function reseting() {
-          setcount(0);
+        function naming(event) {
+          setName(event.target.value);
         }
 
         return (
           <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <button onClick={counting}>your count : {count}</button>
-            <button onClick={counting}>your count : {count}</button>
-            <button onClick={reseting}>reset</button>
+            <input
+              type="text"
+              placeholder="type anything"
+              onChange={naming}
+              value={name}
+            />
+            <button>submit</button>
+            <p>hello {name}</p>
           </div>
         );
       }
